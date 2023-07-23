@@ -1,0 +1,107 @@
+body {
+  margin-bottom: 20px;
+  background-image: url('./images/blaz-photo-cZWZjymwI9o-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h3 {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(3, 3, 3);
+}
+audio{
+  width: 50%;
+}
+
+.navbar {
+  background-color: rgba(255, 254, 254, 0.9);
+  height: 55px;
+  display: flex;
+  align-items: center;
+
+}
+
+.navbar-brand,
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-right: 10px;
+  /* Adjust the spacing between the items if needed */
+}
+
+.container {
+  margin-top: 20px;
+  color:#ffffff;
+
+}
+
+.song {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.footer {
+  background-color: rgba(128, 0, 128, 0.8);
+  color: white;
+  position: fixed;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 13px;
+  margin: 0px;
+}
+
+/* .date-time {
+    position: absolute;
+    color: white;
+    bottom: 5px;
+    right: 5px;
+    margin: 0;
+  } */
+
+/* Change the color of the main heading in the container */
+.container h1 {
+  color: #ffffff;
+  /* Change to the desired text color */
+}
+
+/* Change the color of the paragraph in the container */
+.container p {
+  color: #ffffff;
+  /* Change to the desired text color */
+}
+
+/* Change the color of the link in the playlist list */
+.playlist-list a {
+  color: #ffffff;
+  /* Change to the desired link color */
+}
+
+/* Change the color of the link in the login and register pages */
+.form-group a, label {
+  color: #ffffff;
+  /* Change to the desired link color */
+}
+
+.song-title{
+  cursor: pointer;
+}
+
+.audio-player{
+  margin-left: auto;
+}
+
+.table{
+  margin-bottom: 100px;
+  width: 75%;
+}
+

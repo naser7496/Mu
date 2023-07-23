@@ -1,0 +1,27 @@
+<%- include("partials/header") -%>
+
+<div class="container mt-4">
+  
+  <% if (currentUser) { %>
+    <h2>Your Playlists:</h2>
+    <% if (playlists && playlists.length > 0) { %>
+      <ul class="playlist-list">
+        <% playlists.forEach((playlist) => { %>
+          <li style="cursor:pointer" class="playlist" data-id="<%= playlist._id %>">
+           <a href="/playlists/<%=playlist._id%>"><%= playlist.name %></a> 
+          </li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p></p>
+    <% } %>
+    <a href="/createPlaylist" class="btn btn-primary">Create Playlist</a>
+    
+  <% } %>
+  <% if (!currentUser) { %>
+    <h3><%=fileContents%></h3>
+    <h6>Please <a href="/register">register</a> or <a href="/login">login</a> to access the playlists.</h6>
+  <% } %>
+</div>
+
+<%- include('partials/footer.ejs') -%>
