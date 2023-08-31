@@ -189,15 +189,48 @@ router.post('/playlists/:playlistId/songs/:songId', async (req, res) => {
     const { playlistId, songId } = req.params;
 
     const playlist = await Playlist.findById(playlistId)
-    playlist.songs.pull(songId)
-    await Playlist.save()
+    if(!playlist){
+      return res.status(404).json({message:"Playlist not found"})
+    }
+      // Find the song in the playlist's songs array
+      const songIndex = playlist.songs.indexOf(songId);
+      if (songIndex === -1) {
+        return res.status(404).json({ message: "Song not found in the playlist" });
+      }
+  
+      // Remove the song's ObjectId from the playlist's songs array
+      playlist.songs.splice(songIndex, 1);
+      await playlist.save();
+  
+      // Delete the song document from the database
+      await Song.findByIdAndDelete(songId);
 
     res.status(200).json({ message: 'Song deleted successfully from playlist' })
 
   } catch (error) {
+    console.error('Error occurred while deleting the song:', error);
     res.status(500).json({ error: 'Failed to delete song from playlist' });
   }
 });
+
+router.post('/songs/:songId/edit', async (req,res)=>{
+  try{
+    const {songId}  = req.params;
+    const {name} = req.body; 
+
+    //Find the song by Id and update it's name
+    const song = await Song.findByIdAndUpdate(songId,{ name },{ new:true })
+
+    if(!song){
+      return res.status(404).json({message:"song not found"})
+    }
+    res.status(200).json({ message: "Song name updated successfully", song:song.name });
+
+  }catch(error){
+    console.error('Error occured while updating the song name')
+    res.status(500).json({message:"Interval server error"})
+  }
+})
 // Delete a playlist
 router.delete('/playlists/:playlistId', async (req, res) => {
   try {

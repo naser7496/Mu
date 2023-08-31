@@ -33,8 +33,14 @@
               </audio>
             </td>
             <td class="song-actions">
-              <a href="/songs/<%= song._id %>/edit" class="btn btn-sm btn-primary" title="Edit Song"><i class="fas fa-pencil-alt"></i></a>
-              <a href="/songs/<%= song._id %>/delete" class="btn btn-sm btn-danger" title="Delete Song"><i class="fas fa-trash-alt"></i></a>
+              <a href="/songs/<%= song._id %>/edit" class="btn btn-sm btn-primary edit-song" title="Edit Song"
+                data-song-id="<%=song._id%>"
+                data-song-name="<%=song.name%>">
+                 <i class="fas fa-pencil-alt"></i>
+                </a>
+              <a href="/songs/<%= song._id %>/delete" class="btn btn-sm btn-danger delete-song" title="Delete Song" 
+                 data-song-id="<%= song._id %>"
+                data-playlist-id="<%= playlist._id %>"><i class="fas fa-trash-alt"></i></a>
             </td>
           </tr>
         <% }); %>

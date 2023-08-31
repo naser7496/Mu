@@ -11,11 +11,14 @@ const morgan = require('morgan');
 const ejs   = require('ejs');
 const app = express();
 const helmet = require('helmet');
+require('dotenv').config();
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/music-streaming-app', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+mongoose.connect('mongodb://127.0.0.1:27017/music_streaming_app', { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => {
   console.log('Connected to MongoDB');
-}).catch((err) => {
+})
+.catch((err) => {
   console.log('Error connecting to MongoDB:', err);
 });
 
